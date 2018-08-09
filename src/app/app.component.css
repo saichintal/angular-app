@@ -1,0 +1,19 @@
+.whiteboard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-fluid {
+    margin:0;
+    padding:0;
+    background-image: 'none';
+    background-color:  #e9b1ba;
+  
+}
+
+.tabs {
+    margin-bottom: 15px;
+    overflow: hidden;
+}

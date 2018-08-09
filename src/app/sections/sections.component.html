@@ -1,0 +1,21 @@
+
+<h1 class="sections"> Sections </h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Capacity</th>
+          <th scope="col">Enrolled</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let section of sections">
+          <tr>
+              <td>{{section.title}}</td>
+              <td>{{section.capacity}}</td>
+              <td>{{section.enrolled}}</td>
+              <button (click)="enroll(section)"
+              class="btn btn-success btn-sm float-right">Enroll</button>      
+        </tr>
+    </tbody>
+    </table>

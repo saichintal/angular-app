@@ -1,0 +1,71 @@
+<div>
+  <div *ngIf="canSeeCourse">
+    <div class="row">
+      <div class="col-4">
+        <h1 class="modules">Modules</h1>
+        <ul class="list-group">
+          <li (click)="selectModule(module)" [ngClass]="{'active': module.id == selectedModule.id}" *ngFor="let module of selectedCourse.modules"
+            class="list-group-item">
+            {{module.title}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-8">
+        <h1 class="lessons">Lessons</h1>
+        <ul class="nav nav-tabs">
+          <li (click)="selectLesson(lesson)" [ngClass]="{'active': lesson.id == selectedLesson.id}" *ngFor="let lesson of selectedModule.lessons"
+            class="nav-item">
+            {{lesson.title}}
+          </li>
+        </ul>
+        <span>
+          <h1></h1>
+          <ul>
+            <li *ngFor="let widget of selectedLesson.widgets" class="widgets">
+              <div *ngIf="widget.widgetType == 'List'">
+                <div *ngIf="widget.ordered">
+                  <ol>
+                    <li *ngFor="let t of widget.listItems.split('\n')">
+                      {{t}}</li>
+                  </ol>
+                </div>
+                <div *ngIf="!widget.ordered">
+                  <ul>
+                    <li *ngFor="let t of widget.listItems.split('\n')">
+                      {{t}}</li>
+                  </ul>
+                </div>
+              </div>
+              <div *ngIf="widget.widgetType == 'Heading'">
+                <div *ngIf="widget.size == 1">
+                  <h1>{{widget.text}}</h1>
+                </div>
+                <div *ngIf="widget.size == 2">
+                  <h2>{{widget.text}}</h2>
+                </div>
+                <div *ngIf="widget.size == 3">
+                  <h3>{{widget.text}}</h3>
+                </div>
+                <div *ngIf="widget.size == 4">
+                  <h4>{{widget.text}}</h4>
+                </div>
+              </div>
+              <div *ngIf="widget.widgetType == 'Link'">
+                <a href={{widget.link}}>{{widget.text}}</a>
+              </div>
+              <div *ngIf="widget.widgetType == 'Image'">
+                <img className="widget-image" src={{widget.image}} width="90" />
+              </div>
+              <div *ngIf="widget.widgetType == 'Paragraph'">
+                {{widget.text}}
+              </div>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!canSeeCourse">
+    <h1> Cannot view course content, must be logged in</h1>
+  </div>
+</div>
