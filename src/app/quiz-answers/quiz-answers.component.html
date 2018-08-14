@@ -1,0 +1,55 @@
+<h2>Student Answers To Quiz</h2>
+
+<div class="preview">
+<ul class="list-group">
+    <li *ngFor="let answer of submission.answers" class="list-group-item">
+        <h4>
+          {{answer.question.title}}
+          <span class="float-right">{{answer.question.points}} pts</span>
+        </h4>
+        <p>{{answer.question.description}}</p>
+        <div [ngSwitch]="answer.question.questionType">
+    
+          <app-true-false-question
+            [question]="answer.question"
+            *ngSwitchCase="'TRUE_FALSE'">
+          </app-true-false-question>
+          <li  *ngSwitchCase="'TRUE_FALSE'">
+            <b> Student answer: {{answer.trueFalseAnswer}} </b>
+          </li>
+
+
+          <app-fill-blanks-question
+            [question]="answer.question"
+            *ngSwitchCase="'FILL_BLANKS'">
+          </app-fill-blanks-question>
+          <li *ngSwitchCase="'FILL_BLANKS'">
+              <b> Student answer: 
+            <div *ngFor="let blank of answer.fillBlanksAnswer">
+             <div *ngIf="blank != null"> 
+               {{blank}}
+             </div> 
+            </div> </b>
+            </li>
+
+          <app-multiple-choice-question
+            [question]="answer.question"
+            *ngSwitchCase="'CHOICE'">
+          </app-multiple-choice-question>
+         <li  *ngSwitchCase="'CHOICE'">
+           <b> Student answer: {{answer.question.choices[answer.multipleChoiceAnswer].value}} </b>
+          </li>
+
+          <app-essay-question
+            [question]="answer.question"
+            *ngSwitchCase="'ESSAY'">
+          </app-essay-question>
+         <li  *ngSwitchCase="'ESSAY'">
+           <b> Student answer: {{answer.essayAnswer}} </b>
+          </li>
+
+
+        </div>
+      </li>
+</ul>
+</div>

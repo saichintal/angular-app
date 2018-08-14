@@ -1,0 +1,10 @@
+<span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of question.blanks; let i = index">
+    <span *ngSwitchCase="-1"> 
+      <div *ngIf= "blank.length == 0">
+        <h2> </h2>  
+      </div>{{blank}}</span>
+    <span *ngSwitchCase="0">
+      <input [(ngModel)]= "question.fillBlanksAnswer[i]"
+             style="border-color:black"> 
+    </span>
+  </span>

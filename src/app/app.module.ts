@@ -16,6 +16,16 @@ import { SectionServiceClient } from './services/section.service.client';
 import { EnrollmentServiceClient } from './services/enrollment.service.client';
 import { CourseViewComponent } from './course-view/course-view.component';
 import { AdminComponent } from './admin/admin.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizServiceClient } from './services/quiz.service.client';
+import { QuestionServiceClient } from './services/question.service.client';
+import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
+import { EssayQuestionComponent } from './essay-question/essay-question.component';
+import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
+import { QuizAnswersComponent } from './quiz-answers/quiz-answers.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +36,15 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    SectionsComponent
+    SectionsComponent,
+    QuizListComponent,
+    QuizTakerComponent,
+    EssayQuestionComponent,
+    FillBlanksQuestionComponent,
+    MultipleChoiceQuestionComponent,
+    TrueFalseQuestionComponent,
+    QuizSubmissionsComponent,
+    QuizAnswersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +52,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpModule,
     routing
   ],
-  providers: [UserServiceClient, CourseServiceClient, SectionServiceClient, EnrollmentServiceClient],
+  providers: [UserServiceClient, CourseServiceClient, SectionServiceClient, EnrollmentServiceClient, QuizServiceClient, QuestionServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

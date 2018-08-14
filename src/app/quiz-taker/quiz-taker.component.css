@@ -1,0 +1,13 @@
+.btn {
+    margin-left: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.list-group-item {
+    margin-left: 9px;
+    margin-right: 9px;
+    border: 1.5px solid rgb(0, 0, 0);
+    background-image: 'none';
+    background-color:  #a4aabe;
+}

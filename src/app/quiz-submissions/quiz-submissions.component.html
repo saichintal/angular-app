@@ -1,0 +1,26 @@
+
+<h2>Submissions</h2>
+<div class="filter" *ngIf="isAdmin"> <input [(ngModel)]="username" placeholder="username">
+<button (click)="filterUsername()" type="button" class="btn btn-primary">Filter</button> </div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Time Submitted</th>
+          <th scope="col">Score</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let sub of submissions">
+          <tr>
+              <td>{{sub.student.username}}</td>
+              <td>{{sub.createdAt}}</td>
+              <td>{{sub.points}}</td>
+              <button class="float-right btn btn-primary"
+              (click)="viewStudentAnswers(sub._id)">
+                Submitted Answers 
+              </button> 
+            </tr>
+    </tbody>
+</table>

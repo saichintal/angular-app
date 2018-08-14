@@ -1,0 +1,7 @@
+.preview {
+    pointer-events:none;
+}
+
+.answer {
+    font-weight: bold;
+ }
