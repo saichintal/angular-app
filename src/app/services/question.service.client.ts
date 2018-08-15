@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class QuestionServiceClient {
   createQuestion(quiz) {
-    fetch('http://localhost:3000/api/question', {
+    fetch('https://a-node-server.herokuapp.com/api/question', {
       method: 'post',
       headers: {
         'content-type': 'application/json'

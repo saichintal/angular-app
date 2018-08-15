@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class EnrollmentServiceClient {
   enroll(studentId, sectionId) {
-    return fetch('http://localhost:3000/api/student/' + studentId + '/section/' + sectionId, {
+    return fetch('https://a-node-server.herokuapp.com/api/student/' + studentId + '/section/' + sectionId, {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -15,7 +15,7 @@ export class EnrollmentServiceClient {
   }
 
   getSectionsOfStudent(studentId) {
-    return fetch('http://localhost:3000/api/student/' + studentId + '/section', {
+    return fetch('https://a-node-server.herokuapp.com/api/student/' + studentId + '/section', {
         method: 'get',
         headers: {
           'content-type': 'application/json'
@@ -26,7 +26,7 @@ export class EnrollmentServiceClient {
 
   unenroll(studentId, sectionId, enrollment) {
 
-    return fetch('http://localhost:3000/api/student/' + studentId + '/section/' + sectionId, {
+    return fetch('https://a-node-server.herokuapp.com/api/student/' + studentId + '/section/' + sectionId, {
         method: 'delete',
         headers: {
           'content-type': 'application/json'

@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class UserServiceClient {
   login = (user) =>
-    fetch('http://localhost:3000/api/login', {
+    fetch('https://a-node-server.herokuapp.com/api/login', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -14,7 +14,7 @@ export class UserServiceClient {
     })
 
   register = (newUser) =>
-    fetch('http://localhost:3000/api/register', {
+    fetch('https://a-node-server.herokuapp.com/api/register', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -24,7 +24,7 @@ export class UserServiceClient {
     })
 
   currentUser() {
-    return fetch('http://localhost:3000/api/profile', {
+    return fetch('https://a-node-server.herokuapp.com/api/profile', {
       credentials: 'include'
     }).then(response => {
       if (response.status == 403) {
@@ -36,7 +36,7 @@ export class UserServiceClient {
 
 
   updateUser = (updatedUser) =>
-    fetch('http://localhost:3000/api/profile', {
+    fetch('https://a-node-server.herokuapp.com/api/profile', {
       method: 'put',
       credentials: 'include',
       headers: {
@@ -46,7 +46,7 @@ export class UserServiceClient {
     })
 
   logout = () =>
-    fetch('http://localhost:3000/api/logout', {
+    fetch('https://a-node-server.herokuapp.com/api/logout', {
       method: 'post',
       credentials: 'include',
       headers: {

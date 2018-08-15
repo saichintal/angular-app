@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class QuizServiceClient {
   createQuiz(quiz) {
-    fetch('http://localhost:3000/api/quiz', {
+    fetch('https://a-node-server.herokuapp.com/api/quiz', {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -15,7 +15,7 @@ export class QuizServiceClient {
   }
 
   findAllQuizzes = () =>
-    fetch('http://localhost:3000/api/quiz', {
+    fetch('https://a-node-server.herokuapp.com/api/quiz', {
       method: 'get',
       headers: {
         'content-type': 'application/json'
@@ -25,7 +25,7 @@ export class QuizServiceClient {
       .then(response => response.json())
 
    findQuizById = (quizId) =>
-      fetch('http://localhost:3000/api/quiz/' + quizId, {
+      fetch('https://a-node-server.herokuapp.com/api/quiz/' + quizId, {
         method: 'get',
         headers: {
           'content-type': 'application/json'
@@ -35,7 +35,7 @@ export class QuizServiceClient {
         .then(response => response.json())
 
     submitQuiz(quiz) {
-      return fetch('http://localhost:3000/api/quiz/' + quiz._id + '/submission', {
+      return fetch('https://a-node-server.herokuapp.com/api/quiz/' + quiz._id + '/submission', {
         method: 'post',
         headers: {
           'content-type': 'application/json'
@@ -47,7 +47,7 @@ export class QuizServiceClient {
     }
 
     viewStudentSubmissionsForQuiz(quizId) {
-      return fetch('http://localhost:3000/api/quiz/' + quizId + '/submission', {
+      return fetch('https://a-node-server.herokuapp.com/api/quiz/' + quizId + '/submission', {
         method: 'get',
         headers: {
           'content-type': 'application/json'
@@ -58,7 +58,7 @@ export class QuizServiceClient {
     }
 
     viewSubmissionsForQuiz(quizId) {
-      return fetch('http://localhost:3000/api/quiz/' + quizId + '/submissions', {
+      return fetch('https://a-node-server.herokuapp.com/api/quiz/' + quizId + '/submissions', {
         method: 'get',
         headers: {
           'content-type': 'application/json'
@@ -69,7 +69,7 @@ export class QuizServiceClient {
     }
 
     viewSpecificStudentSubmissionForQuiz(quizId, subId) {
-      return fetch('http://localhost:3000/api/quiz/' + quizId + '/submission/' + subId, {
+      return fetch('https://a-node-server.herokuapp.com/api/quiz/' + quizId + '/submission/' + subId, {
         method: 'get',
         headers: {
           'content-type': 'application/json'

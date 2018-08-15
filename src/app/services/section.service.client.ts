@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 export class SectionServiceClient {
 
   enroll = sectionId => 
-    fetch('http://localhost:3000/api/section/' + sectionId + '/enroll', {
+    fetch('https://a-node-server.herokuapp.com/api/section/' + sectionId + '/enroll', {
       method: 'put',
       headers: {
         'content-type': 'application/json'
@@ -13,15 +13,15 @@ export class SectionServiceClient {
     })
 
   findAllSections = () =>
-    fetch('http://localhost:3000/api/section')
+    fetch('https://a-node-server.herokuapp.com/api/section')
       .then(response => response.json())
 
   findSectionsForCourse = courseId =>
-    fetch('http://localhost:3000/api/course/' + courseId + '/section')
+    fetch('https://a-node-server.herokuapp.com/api/course/' + courseId + '/section')
       .then(response => response.json())
 
   createSection = section =>
-    fetch('http://localhost:3000/api/course/' + section.courseId + '/section', {
+    fetch('https://a-node-server.herokuapp.com/api/course/' + section.courseId + '/section', {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -32,7 +32,7 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   updateSection = section =>
-      fetch('http://localhost:3000/api/section/' + section._id, {
+      fetch('https://a-node-server.herokuapp.com/api/section/' + section._id, {
         method: 'put',
         headers: {
           'content-type': 'application/json'
@@ -43,7 +43,7 @@ export class SectionServiceClient {
         .then(response => response.json())
 
   removeSection = sectionId =>
-      fetch('http://localhost:3000/api/section/' + sectionId, {
+      fetch('https://a-node-server.herokuapp.com/api/section/' + sectionId, {
         method: 'delete',
         headers: {
           'content-type': 'application/json'
